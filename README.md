@@ -1,8 +1,3 @@
-"# tp-ling-prog-iv" 
-<<<<<<< HEAD
-=======
-
->>>>>>> d605a9ca0a9ce564079f6563939782016f426f92
 Para iniciar o projeto, rodar as queries abaixo:
 
 DATABASE: loja
