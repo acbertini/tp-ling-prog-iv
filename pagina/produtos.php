@@ -12,12 +12,12 @@
     </head>
 
     <body>
-        <?php include('navbar.php')?>
+        <?php include('estrutura/navbar.php')?>
 
 
         <main class="container" role="main">
             <div class="jumbotron">
-                <a href="formulario_compra.php">Clique</a>
+                
 
 
 
@@ -26,6 +26,6 @@
             </div>
         </main>
 
-        <?php include('footer.php')?>
+        <?php include('estrutura/footer.php')?>
     </body>
 </html>

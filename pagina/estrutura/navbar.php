@@ -14,9 +14,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="sobre.php">Sobre</a>
             </li>
-            <li>
-                <a class="nav-link" href="mapa.php">Nossa localização</a>
-            </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
             <input clasís="form-control mr-sm-2" aria-label="Search" type="text" placeholder="Search">

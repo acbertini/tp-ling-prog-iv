@@ -17,3 +17,6 @@ CREATE TABLE `markers` (
   `lng` FLOAT( 10, 6 ) NOT NULL ,
   `type` VARCHAR( 30 ) NOT NULL
 ) ENGINE = MYISAM ;
+
+Links uteis:
+Instruções Google Maps API: https://developers.google.com/maps/documentation/javascript/mysql-to-maps?hl=pt-br

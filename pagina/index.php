@@ -12,8 +12,8 @@
     </head>
 
     <body>
-        <?php include('navbar.php')?>
-
+        <?php include('estrutura/navbar.php')?>
+        <?php include_once('conexao/conexao.php')?>
 
         <main class="container" role="main">
             <div class="jumbotron">
@@ -26,6 +26,6 @@
             </div>
         </main>
 
-        <?php include('footer.php')?>
+        <?php include('estrutura/footer.php')?>
     </body>
 </html>
