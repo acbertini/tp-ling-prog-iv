@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<link rel="stylesheet" href="../../css/navbar.css">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Nome página</a>
     <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
