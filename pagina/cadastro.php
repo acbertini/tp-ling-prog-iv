@@ -22,13 +22,11 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
-                                <p>Endereço</p>
+                                
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <?php include('estrutura/mapa.php')?>
-                            </div>
+
                         </div>
                     </div>
                 </div>

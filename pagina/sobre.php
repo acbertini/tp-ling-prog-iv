@@ -22,7 +22,10 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
+                                <h1>Entre em contato conosco!</h1>
                                 <p>Endereço</p>
+                                <p>Rua......................</p>
+                                <p>Cidade/SP</p>
                             </div>
                         </div>
                         <div class="row">
