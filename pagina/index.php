@@ -20,12 +20,9 @@
 
         <main class="container" role="main">
             <div class="jumbotron">
-                <a href="formulario_compra.php">Finalizar compra</a>
-                <br>
-                <a href="cadastro.php">CADASTRE-SE!</a>    
-
-
-
+                <a href="formulario_compra.php">Finalizar compra</a><br>
+                <a href="cadastro.php">CADASTRE-SE!</a><br>
+                <a href="formulario_compra.php">Clique</a>
             </div>
         </main>
 
