@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-6 jumbotron">
                       <h3>Preencha os campos</h3>
-                      <form action="cadastroGet.php" onsubmit="return validar();" method="post">
+                      <form action="index.php" onsubmit="return validar();" method="post">
                         Nome <br/>
                         <input type="text" name="nome" required/><br/>
                         E-mail <br/>
@@ -39,13 +39,13 @@
                         <input type="password" name="senha" id="senha" required/><br/>
                         Confirmar senha <br/>
                         <input type="password" name="senhaConf" id="senhaConf" required/><br/><br/>
-                        <input type="submit" value="Enviar"/> <input type="reset" value="Limpar"/>
+                        <input type="submit" name="subCadastrar" value="Enviar"/> <input type="reset" value="Limpar"/>
                       </form>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
-                                
+
                             </div>
                         </div>
                     </div>

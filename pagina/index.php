@@ -1,3 +1,40 @@
+<?php
+  session_start();
+  if (isset($_POST["login"])){
+    include_once('conexao/conexao.php');
+    if ($con=abreConexao()){
+      $ps=mysqli_prepare($con, "SELECT nome, senha FROM usuario WHERE email='".$_POST["email"]."'");
+      mysqli_stmt_execute($ps);
+      mysqli_stmt_bind_result($ps, $nome, $senha);
+      if (mysqli_stmt_fetch($ps)){
+        if ($senha === $_POST["senha"]){
+          $usuario = [
+            "email" => $_POST["email"],
+            "nome" => $nome,
+        ];
+          $_SESSION["usuario"]=$usuario;
+        }
+        else {
+          $erro = "Senha incorreta!";
+        }
+      }
+      else {
+        $erro="E-mail não cadastrado!";
+      }
+    }
+    else {
+      $erro="Não foi possível estabelecer conexão com o banco de dados!";
+    }
+  }
+  if (isset($_POST["logout"])){
+    session_unset();
+    //session_destroy();
+  }
+  if (isset($_POST["subCadastrar"])){
+    include('cadastroGet.php');
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -19,6 +56,24 @@
         <?php include_once('conexao/conexaoGet.php')?>
 
         <main class="container" role="main">
+          <div name="login" class="jumbotron">
+            <?php
+              if (isset($_SESSION["usuario"]))
+              {
+                  echo "<h2>Bem vindo, ".$_SESSION["usuario"]["nome"]."!</h2><br/>";
+                  echo "<form method='post'><input type='submit' name='logout' value='Logout'/></form>";
+              }
+              else {
+                if (isset($erro)){
+                  echo "<h3 class='text-danger'>$erro</h3>";
+                }
+                if (isset($sucesso)){
+                  echo "<h3 class='text-success'>$sucesso</h3>";
+                }
+                include('formLogin.php');
+              }
+            ?>
+          </div>
             <div class="jumbotron">
                 <a href="formulario_compra.php">Finalizar compra</a><br>
                 <a href="cadastro.php">CADASTRE-SE!</a><br>
