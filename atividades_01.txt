@@ -1,0 +1,30 @@
+FRONT-END
+  *organizar páginas -> ANA
+  *
+  *footer: tipos de pgto
+
+LOGIN -> CARLOS
+  *atualizar dados de conta -> CRUD 
+
+ATUALIZAÇÃO DA NAVBAR (sign-in / logout) -> ANA
+
+DADOS DO USUÁRIO
+  *meus planos cadastrados
+
+FORMULÁRIOS DE COMPRA -> FABIO
+  *produtos: internet (qtde gigas), telefonia (qtde minutos) e televisão (HD, ultraHD...)
+
+MODELAR BANCO DE DADOS -> CARLOS
+  *usuario (id, nome, e-mail, telefone, endereço....)
+  *produto (id, tipo, valor, etc) - telefonia/internet/tv
+     *subProduto (tipo, qtde, valor)
+  *contrato (idContrato PK, usuario FK, produto FK, tempo contrato....)
+
+MAPA -> ANA (resolver falhas)
+
+SOBRE
+  *endereço, telefone, mapa, sei lá 
+
+CARRINHO DE COMPRA
+  *pedido fechado e recibo
+  *código de barras
