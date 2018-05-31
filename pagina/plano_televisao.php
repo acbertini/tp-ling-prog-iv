@@ -70,7 +70,7 @@
             <img class="card-img-top" src="img/form-tv-esporte.png" alt="Card image cap">
             <div class="card-body border border-primary">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" ng-model="esportes">
+                <input class="form-check-input" type="checkbox" name="ch[]" id="inlineCheckbox1" value="37" ng-model="esportes" ng-init="esp=37">
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
            <img class="card-img-top" src="img/form-tv-kids.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox2" value="2" ng-model="kids">
+              <input class="form-check-input mx-auto" type="checkbox" name="ch[]" id="inlineCheckbox2" value="22" ng-model="kids">
             </div>
           </div>
         </div>        
@@ -90,7 +90,7 @@
            <img class="card-img-top" src="img/form-tv-filmes.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox3" value="3" ng-model="filmes">
+              <input class="form-check-input mx-auto" type="checkbox" name="ch[]" id="inlineCheckbox3" value="45" ng-model="filmes">
             </div>
           </div>
         </div> 
@@ -100,7 +100,7 @@
            <img class="card-img-top" src="img/form-tv-cultura.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox4" value="4" ng-model="cultura">
+              <input class="form-check-input mx-auto" type="checkbox" name="ch[]" id="inlineCheckbox4" value="12" ng-model="cultura">
             </div>
           </div>
         </div>         
@@ -110,7 +110,7 @@
            <img class="card-img-top" src="img/form-tv-noticias.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox5" value="5" ng-model="noticias">
+              <input class="form-check-input mx-auto" type="checkbox" name="ch[]" id="inlineCheckbox5" value="52" ng-model="noticias">
             </div>
           </div>
         </div> 
@@ -123,20 +123,41 @@
             <p ng-show="cultura">Cultura</p>
             <p ng-show="noticias">Noticias</p>
             <p class="text-primary">Valor Total do Plano</p>
-            <script>
-              $(document).ready(function(){
-               $("button").click(function(){
-               alert("Value: " + $("#test").val());
-               });
-               });
-            </script>
-            <h1 class="display-4 text-success">R$:00,00</h1><br/>
+
+
+
+            <h1 class="display-4 text-success" id="result">R$:<span id="resultado_soma">0</span>,00</h1><br/>
           </div>
           <br/>
           <a href="index.php" class="btn btn-danger">Voltar</a>
           <a href="index.php" class="btn btn-success">Contratar</a>
 
           </form>
+
+          <div>
+            <?
+            $variavel = 00,00
+            ?>
+            <div id='resultado_soma_menos_variavel'><?echo $total_geral?></div>
+                        <script type="text/javascript">
+                        (function() {
+            var elements = document.getElementsByTagName('input');
+            var resultado = document.getElementById('resultado_soma');
+            var total = 0;
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].onclick = function() {
+                    if (this.checked === false) {
+                        total = total - this.value;
+                    } else {
+                        total = total + parseFloat(this.value);
+                    }
+
+                    resultado.innerHTML = total;
+                }
+            }})();
+                    </script>
+                      </div>
 
         </main>
 
