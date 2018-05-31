@@ -90,7 +90,7 @@
     <div class="card-body">
       <h5 class="card-title text-primary">Rede Móvel</h5>
       <p class="card-text">Escolha a quantidade de minutos, internet e sms que precisar.</p>
-      <a href="#" class="btn btn-primary">Monte seu plano</a>
+      <a href="plano_movel.php" class="btn btn-primary">Monte seu plano</a>
     </div>
   </div>
   <div class="card text-center">

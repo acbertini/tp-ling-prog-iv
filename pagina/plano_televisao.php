@@ -37,6 +37,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -58,7 +59,7 @@
         <main class="container" role="main">
 
           <br/>
-          <div class="jumbotron bg-dark">
+          <div class="jumbotron bg-dark" ng-app="">
 
             <h1 class="display-4 text-center text-white">Contrate seu plano de televisão.</h1><br/>
 
@@ -69,7 +70,7 @@
             <img class="card-img-top" src="img/form-tv-esporte.png" alt="Card image cap">
             <div class="card-body border border-primary">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" ng-model="esportes">
               </div>
             </div>
           </div>
@@ -79,7 +80,7 @@
            <img class="card-img-top" src="img/form-tv-kids.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox2" value="2">
+              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox2" value="2" ng-model="kids">
             </div>
           </div>
         </div>        
@@ -89,7 +90,7 @@
            <img class="card-img-top" src="img/form-tv-filmes.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox3" value="3">
+              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox3" value="3" ng-model="filmes">
             </div>
           </div>
         </div> 
@@ -99,7 +100,7 @@
            <img class="card-img-top" src="img/form-tv-cultura.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox4" value="4">
+              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox4" value="4" ng-model="cultura">
             </div>
           </div>
         </div>         
@@ -109,13 +110,26 @@
            <img class="card-img-top" src="img/form-tv-noticias.png" alt="Card image cap">
            <div class="card-body border border-primary">
             <div class="form-check form-check-inline">
-              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox5" value="5">
+              <input class="form-check-input mx-auto" type="checkbox" id="inlineCheckbox5" value="5" ng-model="noticias">
             </div>
           </div>
         </div> 
 
           <div class="card border border-primary">
+            <p class="text-primary">Opções Selecionadas</p>
+            <p ng-show="esportes">Esportes</p>
+            <p ng-show="kids">Kids</p>
+            <p ng-show="filmes">Filmes</p>
+            <p ng-show="cultura">Cultura</p>
+            <p ng-show="noticias">Noticias</p>
             <p class="text-primary">Valor Total do Plano</p>
+            <script>
+              $(document).ready(function(){
+               $("button").click(function(){
+               alert("Value: " + $("#test").val());
+               });
+               });
+            </script>
             <h1 class="display-4 text-success">R$:00,00</h1><br/>
           </div>
           <br/>
