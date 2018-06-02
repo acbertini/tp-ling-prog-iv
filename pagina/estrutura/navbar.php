@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../../css/navbar.css">
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">LOGO</a>
+    <a class="navbar-brand" href="#">FINGS!</a>
     <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>

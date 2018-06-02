@@ -3,14 +3,22 @@
   if (isset($_POST["login"])){
     include_once('conexao/conexao.php');
     if ($con=abreConexao()){
-      $ps=mysqli_prepare($con, "SELECT nome, senha FROM usuario WHERE email='".$_POST["email"]."'");
+      $ps=mysqli_prepare($con, "SELECT CPF,NOME,ENDERECO,NUMERO_END,BAIRRO,CIDADE,UF,TELEFONE,EMAIL,SENHA FROM usuario WHERE cpf='".$_POST["cpf"]."'");
       mysqli_stmt_execute($ps);
-      mysqli_stmt_bind_result($ps, $nome, $senha);
+      mysqli_stmt_bind_result($ps, $cpf, $nome, $endereco, $numeroEnd, $bairro, $cidade, $uf, $telefone, $email, $senha);
       if (mysqli_stmt_fetch($ps)){
         if ($senha === $_POST["senha"]){
           $usuario = [
-            "email" => $_POST["email"],
+            "cpf" => $cpf,
             "nome" => $nome,
+            "endereco" => $endereco,
+            "numeroEnd" => $numeroEnd,
+            "bairro" => $bairro,
+            "cidade" => $cidade,
+            "uf" => $uf,
+            "telefone" => $telefone,
+            "email" => $email
+            //"senha" => $senha
         ];
           $_SESSION["usuario"]=$usuario;
         }
@@ -19,7 +27,7 @@
         }
       }
       else {
-        $erro="E-mail não cadastrado!";
+        $erro="CPF não cadastrado!";
       }
     }
     else {
@@ -60,8 +68,8 @@
             <?php
               if (isset($_SESSION["usuario"]))
               {
-                  echo "<h2>Bem vindo, ".$_SESSION["usuario"]["nome"]."!</h2><br/>";
-                  echo "<form method='post'><input type='submit' name='logout' value='Logout'/></form>";
+                  echo "<h2>Bem vindo(a), ".$_SESSION["usuario"]["nome"]."!</h2><br/>";
+                  echo "<a class='btn' href='perfil.php'>Meus dados</a><form method='post'><input class='btn' type='submit' name='logout' value='Logout'/></form>";
               }
               else {
                 if (isset($erro)){
