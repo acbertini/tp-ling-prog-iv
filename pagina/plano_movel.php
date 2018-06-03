@@ -59,27 +59,52 @@
 
           <br/>
 
-          <div class="jumbotron bg-dark">
+          <div class="jumbotron bg-dark mx-auto">
 
             <h1 class="display-4 text-center text-white">Contrate seu plano de celular.</h1><br/>
 
-          <div class="card mb-3 border border-primary">
+          <div class="card mb-3 border border-primary mx-auto text-center">
 
-           <h1 class="display-4 text-center text-primary">Chamadas</h1>
-
+           <h1 class="display-4 text-center text-primary mx-auto">Chamadas <span>0</span></h1>
             <div class="custom-control custom-range">
-               <label for="customRange3">Example range</label>
-               <input type="range" class="custom-range form-control" min="0" max="5000" step="0.5" id="customRange3">
+               <input type="range" class="custom-range form-control" min="0" max="5000" step="100" id="customRange1" value="0" oninput="display.value=value" onchange="display.value=value">
+                <input type="text" id="display" value="0" readonly>
             </div>
-
            <h1 class="display-4 text-center text-primary">SMS</h1>
-
+            <div class="custom-control custom-range">
+               <input type="range" class="custom-range form-control" min="0" max="5000" step="100" id="customRange2" value="0" oninput="display2.value=value" onchange="display2.value=value">
+               <input type="text" id="display2" value="0" readonly>
+            </div>
            <h1 class="display-4 text-center text-primary">Internet</h1>
+            <div class="custom-control custom-range">
+               <input type="range" class="custom-range form-control" min="0" max="5000" step="100" id="customRange3" value="0" oninput="display3.value=value" onchange="display3.value=value">
+               <input type="text" id="display3" value="0" readonly><br/>
+               <br/>
+            </div>           
         </div> 
 
-          <div class="card border border-primary">
+                               <script type="text/javascript">
+                        (function() {
+                        var minutos = document.getElementById('customRange1').value;
+                        var sms = document.getElementById('customRange2').value;
+                        var rede_movel = document.getElementById('customRange3').value;
+
+                        var resultado = document.getElementById('resultado_soma');
+                        var total = 0;
+
+                            minutos.onchange = function() {
+                               total = minutos * 0,08;
+                               total += sms * 0,05;
+                               total += rede_movel * 0,02;;
+                        }
+                                resultado.innerHTML = total;
+                            }
+                        }})();
+                    </script>
+
+          <div class="card border border-primary mx-auto text-center">
             <p class="text-primary">Valor Total do Plano</p>
-            <h1 class="display-4 text-success">R$:00,00</h1><br/>
+            <h1 class="display-4 text-success" id="result">R$:<span id="resultado_soma">0</span>,00</h1><br/>
           </div>
           <br/>
           <a href="index.php" class="btn btn-danger">Voltar</a>

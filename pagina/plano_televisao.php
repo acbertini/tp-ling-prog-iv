@@ -138,7 +138,6 @@
             <?
             $variavel = 00,00
             ?>
-            <div id='resultado_soma_menos_variavel'><?echo $total_geral?></div>
                         <script type="text/javascript">
                         (function() {
             var elements = document.getElementsByTagName('input');
