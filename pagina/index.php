@@ -8,7 +8,7 @@
       mysqli_stmt_execute($ps);
       mysqli_stmt_bind_result($ps, $cpf, $nome, $endereco, $numeroEnd, $bairro, $cidade, $uf, $telefone, $email, $senha);
       if (mysqli_stmt_fetch($ps)){
-        if ($senha === $_POST["senha"]){
+        if ($senha === md5($_POST["senha"])){
           $usuario = [
             "cpf" => $cpf,
             "nome" => $nome,

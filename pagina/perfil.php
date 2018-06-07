@@ -28,6 +28,7 @@ if (isset($_POST["alterar"])){
         $_SESSION["usuario"]=$usuario;
 
         $mensagem="Dados atualizados com sucesso!";
+        mysqli_close($con);
   }
 }
   else{
@@ -36,6 +37,39 @@ if (isset($_POST["alterar"])){
 }
 if (isset($_POST["subSenha"])){
   //verificar senha atual e atualizar a senha
+  if ($con=abreConexao()){
+    $ps=mysqli_prepare($con, "SELECT SENHA FROM USUARIO WHERE CPF=?");
+    mysqli_stmt_bind_param($ps, "s", $_SESSION["usuario"]["cpf"]);
+    mysqli_stmt_execute($ps);
+    mysqli_stmt_bind_result($ps, $senha);
+    mysqli_stmt_fetch($ps);
+    mysqli_close($con);
+  }
+  else{
+    $erro="Não foi possível estabelecer conexão com o banco de dados";
+  }
+  if ($con=abreConexao()){
+      if ($senha===md5($_POST["senhaAtual"])){
+        if ($ps2=mysqli_prepare($con, "UPDATE USUARIO SET SENHA=? WHERE CPF=?")){
+          $senhaCript= md5($_POST["senha"]);
+          mysqli_stmt_bind_param($ps2, "ss", $senhaCript, $_SESSION["usuario"]["cpf"]);
+          mysqli_stmt_execute($ps2);
+
+          $mensagem="Senha atualizada com sucesso!";
+        }
+        else{
+          $erro="Erro na consulta (UPDATE)";
+        }
+
+      }
+      else{
+        $erro="Senha atual inválida!";
+      }
+    mysqli_close($con);
+  }
+  else{
+    $erro="Não foi possível estabelecer conexão com o banco de dados";
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -70,11 +104,11 @@ if (isset($_POST["subSenha"])){
 </head>
 <body>
   <?php include ('estrutura/navbar.php'); ?>
+  <?php
+    echo (isset($erro)?"<div class='jumbotron'><h4 class='text-danger'>$erro</h4></div>":"");
+    echo (isset($mensagem)?"<div class='jumbotron'><h4 class='text-success'>$mensagem</h4></div>":"");
+   ?>
   <div class="jumbotron">
-    <?php
-      echo (isset($erro)?"<h4 class='text-danger'>$erro</h4>":"");
-      echo (isset($mensagem)?"<h4 class='text-success'>$mensagem</h4>":"");
-     ?>
     <h3>Meus dados</h3>
     <form class="form-control" id="formAlterar" action='perfil.php' method="post">
       <h4>CPF: <?php echo (isset($_SESSION)?$_SESSION["usuario"]["cpf"]:""); ?></h4><br/>
@@ -100,11 +134,11 @@ if (isset($_POST["subSenha"])){
   </div>
     <div class="jumbotron">
       <h3>Alterar senha</h3>
-      <form name="formSenha" onsubmit="return validar();">
+      <form name="formSenha" method="post" onsubmit="return validar();">
         Senha atual <br/>
         <input type="password" name="senhaAtual" id="senhaAtual" required/><br/>
         Nova senha <br/>
-        <input type="password" name="senha" id="senhaAtual" required/><br/>
+        <input type="password" name="senha" id="senha" required/><br/>
         Confirmar nova senha <br/>
         <input type="password" name="senhaConf" id="senhaConf" required/><br/><br/>
         <input type="submit" name="subSenha" id="subSenha" value="Alterar"/> <input type="reset" value="Limpar"/>
