@@ -34,64 +34,153 @@
         </nav>
 
         <main class="container" role="main">
-            <div class="jumbotron">
-                <h1>Efetuar compra</h1>
-                <p class="lead">Data, e-mail, numérico, texto validado por expressão regular, texto de várias linhas, caixa de combinação (dropdownlist) e botões de rádio</p>
+            <div class="jumbotron mx-auto text-center" ng-app="">
+                <h1 class="display-1">Contratar Planos</h1>
                 <form>
-                    <div class="form-group">
-                        <label for="dataEnvio">Data para envio</label>
-                        <input type="date" class="form-control" id="dataEnvio">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">E-mail</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleSelect1">Quantidade</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleTextarea">Example textarea</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                    </div>
-                    <fieldset class="form-group">
-                        <legend>Radio buttons</legend>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                Option one is this and that&mdash;be sure to include why it's great
-                            </label>
+
+                    <h1 class="display-4" for="exampleSelect1">Telefone</h1>
+                    <div class="card-deck">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">P</h1>
+                          <p class="card-text">500 Minutos</p>
+                          <hr/>
+                          <h5 class="text-success">R$: 38,00</h5>
+                          <hr/>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" ng-model="ptv">
+                          <label class="custom-control-label" for="customRadio1">Plano P</label>
                         </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                Option two can be something else and selecting it will deselect option one
-                            </label>
                         </div>
-                        <div class="form-check disabled">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                                Option three is disabled
-                            </label>
+                      </div>
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">M</h1>
+                          <p class="card-text">1000 Minutos</p>
+                          <hr/>
+                          <h5 class="text-success">R$: 75,00</h5>
+                          <hr/>
+                          <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio2">Plano M</label>
                         </div>
-                    </fieldset>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            Check me out
-                        </label>
+                        </div>
+                      </div>
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">G</h1>
+                          <p class="card-text">1500 Minutos</p>
+                          <hr/>
+                          <h5 class="text-success">R$: 125,00</h5>
+                          <hr/>
+                          <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio3">Plano G</label>
+                        </div>
+                        </div>
+                      </div>
                     </div>
+
+                    <h1 class="display-4">Televisão</h1>
+
+                    <div class="card-deck">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">P</h1>
+                          <hr/>
+                          <p class="card-text">84 Canais<br/><span class="text-warning">22 Canais HD</span></p>
+                          <hr/>
+                          <h5 class="text-success">R$: 99,00</h5>
+                          <hr/>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio4">Plano P</label>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">M</h1>
+                          <hr/>
+                          <p class="card-text">156 Canais<br/><span class="text-warning">46 Canais HD</span></p>
+                          <hr/>
+                          <h5 class="text-success">R$: 252,00</h5>
+                          <hr/>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio5" name="customRadio2" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio5">Plano M</label>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">G</h1>
+                          <hr/>
+                          <p class="card-text">234 Canais<br/><span class="text-warning">84 Canais HD</span></p>
+                          <hr/>
+                          <h5 class="text-success">R$: 322,00</h5>
+                          <hr/>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio6" name="customRadio2" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio6">Plano G</label>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h1 class="display-4">Internet</h1>
+
+                    <div class="card-deck">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">P</h1>
+                          <hr/>
+                          <p class="card-text">10Mb's</p>
+                          <hr/>
+                          <h5 class="text-success">R$: 18,00</h5>
+                          <hr/>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio7" name="customRadio3" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio7">Plano P</label>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">M</h1>
+                          <hr/>
+                          <p class="card-text">50Mb's</p>
+                          <hr/>
+                          <h5 class="text-success">R$: 50,00</h5>
+                          <hr/>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio8" name="customRadio3" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio8">Plano M</label>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h1 class="card-title text-primary">G</h1>
+                          <hr/>
+                          <p class="card-text">100Mb's</p>
+                          <hr/>
+                          <h5 class="text-success">R$: 100,00</h5>
+                          <hr/>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio9" name="customRadio3" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio9">Plano G</label>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                             <br/>
+                             <div class="card border border-primary">
+                                <p class="text-primary">Opções Selecionadas</p>
+                                <p ng-show="ptv">Televisão - Plano P</p>
+                            </div>
+                            <br/>
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

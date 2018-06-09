@@ -84,22 +84,22 @@
             ?>
           </div>
 
-          <div class="jumbotron bg-dark">
-            <div class="card-deck ">
+          <div class="jumbotron bg-dark mx-auto text-center">
+            <div class="card-deck">
   <div class="card text-center">
     <img class="card-img-top" src="img/card-tv.png" alt="Televisão a Cabo">
     <div class="card-body">
       <h5 class="card-title text-primary">Televisão A Cabo</h5>
       <p class="card-text">Monte seu plano de canais.</p>
-      <a href="plano_televisao.php" class="btn btn-primary">Monte seu plano</a>
+      <a href="plano_televisao.php" class="btn btn-outline-primary">Saiba Mais</a>
     </div>
   </div>
   <div class="card text-center">
     <img class="card-img-top" src="img/card-cel.png" alt="Rede Móvel">
     <div class="card-body">
-      <h5 class="card-title text-primary">Rede Móvel</h5>
-      <p class="card-text">Escolha a quantidade de minutos, internet e sms que precisar.</p>
-      <a href="plano_movel.php" class="btn btn-primary">Monte seu plano</a>
+      <h5 class="card-title text-primary">Telefone Fixo</h5>
+      <p class="card-text">Escolha a quantidade de minutos que precisar.</p>
+      <a href="plano_movel.php" class="btn btn-outline-primary">Saiba Mais</a>
     </div>
   </div>
   <div class="card text-center">
@@ -107,10 +107,22 @@
     <div class="card-body">
       <h5 class="card-title text-primary">Internet Fixa</h5>
       <p class="card-text">Escolha quantos MB's quiser.</p>
-      <a href="#" class="btn btn-primary">Monte seu plano</a>
+      <a href="#" class="btn btn-outline-primary">Saiba Mais</a>
     </div>
   </div>
 </div>
+<br/>
+  <div>
+
+  <?php 
+  if(isset($_SESSION["usuario"])){
+    echo "<button class='btn btn-primary mx-auto text-center btn-block btn-lg'>Contrate Aqui</button>";
+  }
+  else{
+    echo "<h3 class='text-primary'>Logue-se para contratar</h3>";
+  }  ?>
+  </div>
+
           </div>
 
             <div class="jumbotron">
