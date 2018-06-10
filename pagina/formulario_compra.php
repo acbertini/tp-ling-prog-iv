@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -11,7 +12,7 @@
         <title>Hello, world!</title>
     </head>
 
-    <body>
+    <body ng-app="">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <a class="navbar-brand" href="#">Top navbar</a>
             <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
@@ -20,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -34,9 +35,9 @@
         </nav>
 
         <main class="container" role="main">
-            <div class="jumbotron mx-auto text-center" ng-app="">
+            <div class="jumbotron mx-auto text-center">
                 <h1 class="display-1">Contratar Planos</h1>
-                <form>
+                <form name="myForm">
 
                     <h1 class="display-4" for="exampleSelect1">Telefone</h1>
                     <div class="card-deck">
@@ -48,7 +49,7 @@
                           <h5 class="text-success">R$: 38,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" ng-model="ptv">
+                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" ng-model="tl">
                           <label class="custom-control-label" for="customRadio1">Plano P</label>
                         </div>
                         </div>
@@ -61,7 +62,7 @@
                           <h5 class="text-success">R$: 75,00</h5>
                           <hr/>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="2" ng-model="tl">
                           <label class="custom-control-label" for="customRadio2">Plano M</label>
                         </div>
                         </div>
@@ -74,12 +75,16 @@
                           <h5 class="text-success">R$: 125,00</h5>
                           <hr/>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="3" ng-model="tl">
                           <label class="custom-control-label" for="customRadio3">Plano G</label>
                         </div>
                         </div>
                       </div>
                     </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio10">Nenhum</label>
+                        </div>
 
                     <h1 class="display-4">Televisão</h1>
 
@@ -93,7 +98,7 @@
                           <h5 class="text-success">R$: 99,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input">
+                          <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" value="4" ng-model="tv">
                           <label class="custom-control-label" for="customRadio4">Plano P</label>
                         </div>
                         </div>
@@ -107,7 +112,7 @@
                           <h5 class="text-success">R$: 252,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio5" name="customRadio2" class="custom-control-input">
+                          <input type="radio" id="customRadio5" name="customRadio2" class="custom-control-input" value="5" ng-model="tv">
                           <label class="custom-control-label" for="customRadio5">Plano M</label>
                         </div>
                         </div>
@@ -121,7 +126,7 @@
                           <h5 class="text-success">R$: 322,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio6" name="customRadio2" class="custom-control-input">
+                          <input type="radio" id="customRadio6" name="customRadio2" class="custom-control-input" value="6" ng-model="tv">
                           <label class="custom-control-label" for="customRadio6">Plano G</label>
                         </div>
                         </div>
@@ -140,7 +145,7 @@
                           <h5 class="text-success">R$: 18,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio7" name="customRadio3" class="custom-control-input">
+                          <input type="radio" id="customRadio7" name="customRadio3" class="custom-control-input" value="18" ng-model="net">
                           <label class="custom-control-label" for="customRadio7">Plano P</label>
                         </div>
                         </div>
@@ -154,7 +159,7 @@
                           <h5 class="text-success">R$: 50,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio8" name="customRadio3" class="custom-control-input">
+                          <input type="radio" id="customRadio8" name="customRadio3" class="custom-control-input" value="50" ng-model="net">
                           <label class="custom-control-label" for="customRadio8">Plano M</label>
                         </div>
                         </div>
@@ -168,7 +173,7 @@
                           <h5 class="text-success">R$: 100,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio9" name="customRadio3" class="custom-control-input">
+                          <input type="radio" id="customRadio9" name="customRadio3" class="custom-control-input" value="100" ng-model="net">
                           <label class="custom-control-label" for="customRadio9">Plano G</label>
                         </div>
                         </div>
@@ -177,10 +182,28 @@
                              <br/>
                              <div class="card border border-primary">
                                 <p class="text-primary">Opções Selecionadas</p>
-                                <p ng-show="ptv">Televisão - Plano P</p>
+
+                                <div ng-switch="tv">
+                                <div ng-switch-when="1"><p>Televisão - Plano P</p></div>
+                                <div ng-switch-when="2"><p>Televisão - Plano M</p></div>
+                                <div ng-switch-when="3"><p>Televisão - Plano G</p></div>
+                                </div>
+
+                                <div ng-switch="tl">
+                                <div ng-switch-when="4"><p>Telefone - Plano P</p></div>
+                                <div ng-switch-when="5"><p>Telefone - Plano M</p></div>
+                                <div ng-switch-when="6"><p>Telefone - Plano G</p></div>
+                                </div>
+
+                                <div ng-switch="net">
+                                <div ng-switch-when="18"><p>Internet - Plano P</p></div>
+                                <div ng-switch-when="50"><p>Internet - Plano M</p></div>
+                                <div ng-switch-when="100"><p>Internet - Plano G</p></div>
+                                </div>
+                                <h1 class="display-4 text-success" id="result">R$:<span id="resultado_soma">{{total}}</span>,00</h1><br/>
                             </div>
                             <br/>
-
+                            <div ng-app="myApp" ng-controller="myCtrl">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
