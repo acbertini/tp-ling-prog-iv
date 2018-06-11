@@ -16,31 +16,32 @@
         <main class="container" role="main">
           <br/>
           <div class="container-fluid mx-auto text-center">
-            <h1 class="display-1">Planos Telefone Fixo</h1>
+            <h1 class="display-1">Planos Internet Fixa</h1>
             <hr/>
             <div class="container-fluid">
-              <h1 class="display-4">Plano <span class="text-primary">P</span></h1>
+              <h1 class="display-4">Plano <span class="text-primary">P</span> Net</h1>
               <ul class="list-group">
-                <li class="list-group-item">500 Minutos DDD</li>
-                <li class="list-group-item">Minutos Ilimitado Para Ligação Local</li>
-                <li class="list-group-item">Assinatura Da Revista Veja Online De Brinde<</li>
+                <li class="list-group-item">10 Mb's</li>
+                <li class="list-group-item">No minimo 5mb's de upload</li>
+                <li class="list-group-item">Ideal para filmes em 720p</li>
               </ul>
             </div>
 
             <div class="container">
-              <h1 class="display-4">Plano <span class="text-primary">M</span></h1>
+              <h1 class="display-4">Plano <span class="text-primary">M</span> Net</h1>
                <ul class="list-group">
-                <li class="list-group-item">1000 Minutos DDD</li>
+                <li class="list-group-item">50Mb's</li>
                 <li class="list-group-item">Minutos Ilimitado Para Ligação Local</li>
                 <li class="list-group-item">Assinatura Da Revista Veja Online De Brinde<</li>
               </ul>
             </div>
             <div class="container">
-              <h1 class="display-4">Plano <span class="text-primary">G</span></h1>
+              <h1 class="display-4">Plano <span class="text-primary">G</span> Net</h1>
               <ul class="list-group">
-                <li class="list-group-item">1500 Minutos DDD</li>
-                <li class="list-group-item">Minutos Ilimitado Para Ligação Local</li>
-                <li class="list-group-item">Assinatura Da Revista Veja Online De Brinde</li>
+                <li class="list-group-item">100Mb's</li>
+                <li class="list-group-item">Otimo para streaming</li>
+                <li class="list-group-item">Ideal para filmes em 4k</li>
+                <li class="list-group-item">Ótimo para ambientes com grande quantidade de pessoas</li>
               </ul>
               <br/>
             </div>

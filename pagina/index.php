@@ -107,7 +107,7 @@
     <div class="card-body">
       <h5 class="card-title text-primary">Internet Fixa</h5>
       <p class="card-text">Escolha quantos MB's quiser.</p>
-      <a href="#" class="btn btn-outline-primary">Saiba Mais</a>
+      <a href="plano_internet.php" class="btn btn-outline-primary">Saiba Mais</a>
     </div>
   </div>
 </div>
