@@ -45,6 +45,8 @@
               </ul>
               <br/>
             </div>
+            <p>Veja também!</p>
+            <a href="plano_televisao.php" class="btn btn-outline-primary">Televisão</a><span> | </span><a href="plano_movel.php" class="btn btn-outline-primary">Telefone</a>
           </div>
           <br/>
         </main>

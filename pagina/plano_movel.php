@@ -19,7 +19,7 @@
             <h1 class="display-1">Planos Telefone Fixo</h1>
             <hr/>
             <div class="container-fluid">
-              <h1 class="display-4">Plano <span class="text-primary">P</span></h1>
+              <h1 class="display-4">Plano <span class="text-primary">P</span> Tel</h1>
               <ul class="list-group">
                 <li class="list-group-item">500 Minutos DDD</li>
                 <li class="list-group-item">Minutos Ilimitado Para Ligação Local</li>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="container">
-              <h1 class="display-4">Plano <span class="text-primary">M</span></h1>
+              <h1 class="display-4">Plano <span class="text-primary">M</span> Tel</h1>
                <ul class="list-group">
                 <li class="list-group-item">1000 Minutos DDD</li>
                 <li class="list-group-item">Minutos Ilimitado Para Ligação Local</li>
@@ -36,7 +36,7 @@
               </ul>
             </div>
             <div class="container">
-              <h1 class="display-4">Plano <span class="text-primary">G</span></h1>
+              <h1 class="display-4">Plano <span class="text-primary">G</span> Tel</h1>
               <ul class="list-group">
                 <li class="list-group-item">1500 Minutos DDD</li>
                 <li class="list-group-item">Minutos Ilimitado Para Ligação Local</li>
@@ -44,6 +44,8 @@
               </ul>
               <br/>
             </div>
+            <p>Veja também!</p>
+            <a href="plano_televisão.php" class="btn btn-outline-primary">Televisão</a><span> | </span><a href="plano_internet.php" class="btn btn-outline-primary">Internet</a>
           </div>
           <br/>
         </main>
