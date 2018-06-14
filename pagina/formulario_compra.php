@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <head>
-        <!-- Required meta tags -->
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#btn1").click(function(){
+
+                        var x = 0;
+
+                        $("#resultado_soma").html("Hello world!");
+
+                        x += parseInt($( "#customRadio1:checked" ).val());
+                        x += parseInt($( "#customRadio2:checked" ).val());
+                        x += parseInt($( "#customRadio3:checked" ).val());
+                        x += parseInt($( "#customRadio4:checked" ).val());
+                        x += parseInt($( "#customRadio5:checked" ).val());
+                        x += parseInt($( "#customRadio6:checked" ).val());
+                        x += parseInt($( "#customRadio7:checked" ).val());
+                        x += parseInt($( "#customRadio8:checked" ).val());
+                        x += parseInt($( "#customRadio9:checked" ).val());
+
+                        $( "#resultado_soma2" ).html( x );
+
+                        return false;
+                    });
+                });
+            </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
-        <title>Hello, world!</title>
+        <title>Contrate seu plano!</title>
     </head>
 
-    <body ng-app="">
+    <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <a class="navbar-brand" href="#">Top navbar</a>
             <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
@@ -49,7 +69,7 @@
                           <h5 class="text-success">R$: 38,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" ng-model="tl">
+                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1">
                           <label class="custom-control-label" for="customRadio1">Plano P</label>
                         </div>
                         </div>
@@ -62,7 +82,7 @@
                           <h5 class="text-success">R$: 75,00</h5>
                           <hr/>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="2" ng-model="tl">
+                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="2">
                           <label class="custom-control-label" for="customRadio2">Plano M</label>
                         </div>
                         </div>
@@ -75,7 +95,7 @@
                           <h5 class="text-success">R$: 125,00</h5>
                           <hr/>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="3" ng-model="tl">
+                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="3">
                           <label class="custom-control-label" for="customRadio3">Plano G</label>
                         </div>
                         </div>
@@ -98,7 +118,7 @@
                           <h5 class="text-success">R$: 99,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" value="4" ng-model="tv">
+                          <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" value="4">
                           <label class="custom-control-label" for="customRadio4">Plano P</label>
                         </div>
                         </div>
@@ -112,7 +132,7 @@
                           <h5 class="text-success">R$: 252,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio5" name="customRadio2" class="custom-control-input" value="5" ng-model="tv">
+                          <input type="radio" id="customRadio5" name="customRadio2" class="custom-control-input" value="5">
                           <label class="custom-control-label" for="customRadio5">Plano M</label>
                         </div>
                         </div>
@@ -126,7 +146,7 @@
                           <h5 class="text-success">R$: 322,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio6" name="customRadio2" class="custom-control-input" value="6" ng-model="tv">
+                          <input type="radio" id="customRadio6" name="customRadio2" class="custom-control-input" value="6">
                           <label class="custom-control-label" for="customRadio6">Plano G</label>
                         </div>
                         </div>
@@ -145,7 +165,7 @@
                           <h5 class="text-success">R$: 18,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio7" name="customRadio3" class="custom-control-input" value="18" ng-model="net">
+                          <input type="radio" id="customRadio7" name="customRadio3" class="custom-control-input" value="18">
                           <label class="custom-control-label" for="customRadio7">Plano P</label>
                         </div>
                         </div>
@@ -159,7 +179,7 @@
                           <h5 class="text-success">R$: 50,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio8" name="customRadio3" class="custom-control-input" value="50" ng-model="net">
+                          <input type="radio" id="customRadio8" name="customRadio3" class="custom-control-input" value="50">
                           <label class="custom-control-label" for="customRadio8">Plano M</label>
                         </div>
                         </div>
@@ -173,7 +193,7 @@
                           <h5 class="text-success">R$: 100,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio9" name="customRadio3" class="custom-control-input" value="100" ng-model="net">
+                          <input type="radio" id="customRadio9" name="customRadio3" class="custom-control-input" value="100">
                           <label class="custom-control-label" for="customRadio9">Plano G</label>
                         </div>
                         </div>
@@ -181,30 +201,14 @@
                     </div>
                              <br/>
                              <div class="card border border-primary">
-                                <p class="text-primary">Opções Selecionadas</p>
+                                <button class="btn btn-primary" name="btn1" for="" id="btn1">Simular</button>
+                                <p class="text-primary">Plano Selecionado</p>
 
-                                <div ng-switch="tv">
-                                <div ng-switch-when="1"><p>Televisão - Plano P</p></div>
-                                <div ng-switch-when="2"><p>Televisão - Plano M</p></div>
-                                <div ng-switch-when="3"><p>Televisão - Plano G</p></div>
-                                </div>
 
-                                <div ng-switch="tl">
-                                <div ng-switch-when="4"><p>Telefone - Plano P</p></div>
-                                <div ng-switch-when="5"><p>Telefone - Plano M</p></div>
-                                <div ng-switch-when="6"><p>Telefone - Plano G</p></div>
-                                </div>
-
-                                <div ng-switch="net">
-                                <div ng-switch-when="18"><p>Internet - Plano P</p></div>
-                                <div ng-switch-when="50"><p>Internet - Plano M</p></div>
-                                <div ng-switch-when="100"><p>Internet - Plano G</p></div>
-                                </div>
-                                <h1 class="display-4 text-success" id="result">R$:<span id="resultado_soma">{{total}}</span>,00</h1><br/>
+                                <h1 class="display-4 text-success" id="result">R$:<span id="total"></span>,00<span id="resultado_soma2"></span></h1><br/>
                             </div>
                             <br/>
-                            <div ng-app="myApp" ng-controller="myCtrl">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
                 </form>
             </div>
         </main>

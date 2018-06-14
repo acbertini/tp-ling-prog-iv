@@ -45,7 +45,7 @@
               <br/>
             </div>
             <p>Veja também!</p>
-            <a href="plano_televisão.php" class="btn btn-outline-primary">Televisão</a><span> | </span><a href="plano_internet.php" class="btn btn-outline-primary">Internet</a>
+            <a href="plano_televisao.php" class="btn btn-outline-primary">Televisão</a><span> | </span><a href="plano_internet.php" class="btn btn-outline-primary">Internet</a>
           </div>
           <br/>
         </main>
