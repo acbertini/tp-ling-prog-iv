@@ -21,6 +21,9 @@
                         x += parseInt($( "#customRadio9:checked" ).val());
 
                         $( "#resultado_soma2" ).html( x );
+                          $('#finaliza').click(function() {
+                            if (! $("input[type='radio'][name='customRadio']").is(':checked') ){
+                              alert("TAMANHO\nPor favor, selecione um tamanho.");
 
                         return false;
                     });
