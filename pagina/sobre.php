@@ -30,10 +30,12 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>Entre em contato conosco!</h1>
-                                <p>Endereço</p>
-                                <p>Rua......................</p>
-                                <p>Cidade/SP</p>
+                                <h2>Entre em contato conosco!</h2>
+                                <p>Beatrix Boulevard</p>
+                                <p>Av. Brasil, 600 - Boqueirão</p>
+                                <p>Praia Grande/SP</p>
+                                <p>11701-090</p>
+                                <p>Tel.: (13) 1122-3344</p>
                             </div>
                         </div>
                         <div class="row">
