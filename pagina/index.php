@@ -1,49 +1,4 @@
-<?php
-session_start();
-if (isset($_POST["login"])){
-    include_once('conexao/conexao.php');
-    if ($con=abreConexao()){
-        $ps=mysqli_prepare($con, "SELECT CPF,NOME,ENDERECO,NUMERO_END,BAIRRO,CIDADE,UF,TELEFONE,EMAIL,SENHA FROM usuario WHERE cpf=?");
-        mysqli_stmt_bind_param($ps, "s", $_POST["cpf"]);
-        mysqli_stmt_execute($ps);
-        mysqli_stmt_bind_result($ps, $cpf, $nome, $endereco, $numeroEnd, $bairro, $cidade, $uf, $telefone, $email, $senha);
-        if (mysqli_stmt_fetch($ps)){
-            if ($senha === md5($_POST["senha"])){
-                $usuario = [
-                    "cpf" => $cpf,
-                    "nome" => $nome,
-                    "endereco" => $endereco,
-                    "numeroEnd" => $numeroEnd,
-                    "bairro" => $bairro,
-                    "cidade" => $cidade,
-                    "uf" => $uf,
-                    "telefone" => $telefone,
-                    "email" => $email
-                    //"senha" => $senha
-                ];
-                $_SESSION["usuario"]=$usuario;
-            }
-            else {
-                $erro = "Senha incorreta!";
-            }
-        }
-        else {
-            $erro="CPF não cadastrado!";
-        }
-    }
-    else {
-        $erro="Não foi possível estabelecer conexão com o banco de dados!";
-    }
-}
-if (isset($_POST["logout"])){
-    session_unset();
-    //session_destroy();
-}
-if (isset($_POST["subCadastrar"])){
-    include('cadastroGet.php');
-}
-
-?>
+ <?php include_once('estrutura/logica-login.php')?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -57,36 +12,20 @@ if (isset($_POST["subCadastrar"])){
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../../css/navbar.css">
 
-        <title>Hello, world!</title>
+        <title>Home!</title>
     </head>
 
-    <body>
+    <body class="bg-transparent">
         <?php include('estrutura/navbar.php')?>
         <?php include_once('conexao/conexaoGet.php')?>
 
         <main class="container" role="main">
-            <div name="login" class="jumbotron">
-                <?php
-    if (isset($_SESSION["usuario"]))
-    {
-        echo "<h2>Bem vindo(a), ".$_SESSION["usuario"]["nome"]."!</h2><br/>";
-        echo "<a class='btn' href='perfil.php'>Meus dados</a><form method='post'><input class='btn' type='submit' name='logout' value='Logout'/></form>";
-    }
-        else {
-            if (isset($erro)){
-                echo "<h3 class='text-danger'>$erro</h3>";
-            }
-            if (isset($sucesso)){
-                echo "<h3 class='text-success'>$sucesso</h3>";
-            }
-            include('formLogin.php');
-        }
-                ?>
-            </div>
 
-            <div class="jumbotron bg-dark mx-auto text-center">
+          <br/>
+            <div class="container mx-auto text-center">
+                <br/>
                 <div class="card-deck">
-                    <div class="card text-center">
+                    <div class="card text-center border-primary">
                         <img class="card-img-top" src="img/card-tv.png" alt="Televisão a Cabo">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Televisão A Cabo</h5>
@@ -94,7 +33,7 @@ if (isset($_POST["subCadastrar"])){
                             <a href="plano_televisao.php" class="btn btn-outline-primary">Saiba Mais</a>
                         </div>
                     </div>
-                    <div class="card text-center">
+                    <div class="card text-center border-primary">
                         <img class="card-img-top" src="img/card-cel.png" alt="Rede Móvel">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Telefone Fixo</h5>
@@ -102,7 +41,7 @@ if (isset($_POST["subCadastrar"])){
                             <a href="plano_movel.php" class="btn btn-outline-primary">Saiba Mais</a>
                         </div>
                     </div>
-                    <div class="card text-center">
+                    <div class="card text-center border-primary">
                         <img class="card-img-top" src="img/card-net.png" alt="Internet Fixa">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Internet Fixa</h5>
@@ -123,6 +62,7 @@ if (isset($_POST["subCadastrar"])){
                     }  ?>
                 </div>
             </div>
+            <br/>
         </main>
         <?php include('estrutura/footer.php')?>
     </body>

@@ -1,29 +1,14 @@
+ <?php include_once('estrutura/logica-login.php')?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
             <script type="text/javascript">
                 $(document).ready(function(){
-                    $("#btn1").click(function(){
-
-                        var x = 0;
-
-                        $("#resultado_soma").html("Hello world!");
-
-                        x += parseInt($( "#customRadio1:checked" ).val());
-                        x += parseInt($( "#customRadio2:checked" ).val());
-                        x += parseInt($( "#customRadio3:checked" ).val());
-                        x += parseInt($( "#customRadio4:checked" ).val());
-                        x += parseInt($( "#customRadio5:checked" ).val());
-                        x += parseInt($( "#customRadio6:checked" ).val());
-                        x += parseInt($( "#customRadio7:checked" ).val());
-                        x += parseInt($( "#customRadio8:checked" ).val());
-                        x += parseInt($( "#customRadio9:checked" ).val());
-
                         $( "#resultado_soma2" ).html( x );
                           $('#finaliza').click(function() {
                             if (! $("input[type='radio'][name='customRadio']").is(':checked') ){
-                              alert("TAMANHO\nPor favor, selecione um tamanho.");
+                              document.getElementById(resultado_soma2).innerHTML = 1;
 
                         return false;
                     });
@@ -63,6 +48,10 @@
                 <form name="myForm">
 
                     <h1 class="display-4" for="exampleSelect1">Telefone</h1>
+                          <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input" checked>
+                          <label class="custom-control-label text-primary" for="customRadio10">Nenhum</label>
+                        </div>
                     <div class="card-deck">
                       <div class="card text-center">
                         <div class="card-body">
@@ -72,7 +61,7 @@
                           <h5 class="text-success">R$: 38,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1">
+                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="38">
                           <label class="custom-control-label" for="customRadio1">Plano P</label>
                         </div>
                         </div>
@@ -85,7 +74,7 @@
                           <h5 class="text-success">R$: 75,00</h5>
                           <hr/>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="2">
+                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="75">
                           <label class="custom-control-label" for="customRadio2">Plano M</label>
                         </div>
                         </div>
@@ -98,19 +87,18 @@
                           <h5 class="text-success">R$: 125,00</h5>
                           <hr/>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="3">
+                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="125">
                           <label class="custom-control-label" for="customRadio3">Plano G</label>
                         </div>
                         </div>
                       </div>
                     </div>
-                        <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input">
-                          <label class="custom-control-label" for="customRadio10">Nenhum</label>
-                        </div>
 
                     <h1 class="display-4">Televisão</h1>
-
+                          <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio11" name="customRadio2" class="custom-control-input" checked>
+                          <label class="custom-control-label text-primary" for="customRadio11">Nenhum</label>
+                        </div>                    
                     <div class="card-deck">
                       <div class="card text-center">
                         <div class="card-body">
@@ -121,7 +109,7 @@
                           <h5 class="text-success">R$: 99,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" value="4">
+                          <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" value="99">
                           <label class="custom-control-label" for="customRadio4">Plano P</label>
                         </div>
                         </div>
@@ -135,7 +123,7 @@
                           <h5 class="text-success">R$: 252,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio5" name="customRadio2" class="custom-control-input" value="5">
+                          <input type="radio" id="customRadio5" name="customRadio2" class="custom-control-input" value="252">
                           <label class="custom-control-label" for="customRadio5">Plano M</label>
                         </div>
                         </div>
@@ -149,7 +137,7 @@
                           <h5 class="text-success">R$: 322,00</h5>
                           <hr/>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio6" name="customRadio2" class="custom-control-input" value="6">
+                          <input type="radio" id="customRadio6" name="customRadio2" class="custom-control-input" value="322">
                           <label class="custom-control-label" for="customRadio6">Plano G</label>
                         </div>
                         </div>
@@ -157,7 +145,10 @@
                     </div>
 
                     <h1 class="display-4">Internet</h1>
-
+                          <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio12" name="customRadio3" class="custom-control-input" checked>
+                          <label class="custom-control-label text-primary" for="customRadio12">Nenhum</label>
+                        </div>
                     <div class="card-deck">
                       <div class="card text-center">
                         <div class="card-body">
@@ -205,10 +196,52 @@
                              <br/>
                              <div class="card border border-primary">
                                 <button class="btn btn-primary" name="btn1" for="" id="btn1">Simular</button>
+                                <script type="text/javascript">
+                                  $("#btn1").click(function() {
+                                    var total = 0;
+                                    if ($("#customRadio9").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio9").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio8").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio8").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio7").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio7").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio6").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio6").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio5").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio5").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio4").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio4").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio3").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio3").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio2").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio2").value);
+                                      total = total + x;
+                                    }
+                                    if ($("#customRadio1").prop("checked")) {
+                                      var x = Number(document.getElementById("customRadio1").value);
+                                      total = total + x;
+                                    }                                                                                                                                                                   document.getElementById("total").innerHTML = total;                                                
+                                    return false;
+                                  })
+                                </script>
                                 <p class="text-primary">Plano Selecionado</p>
 
 
-                                <h1 class="display-4 text-success" id="result">R$:<span id="total"></span>,00<span id="resultado_soma2"></span></h1><br/>
+                                <h1 class="display-4 text-success" id="result">R$:<span id="total">0</span>,00<span id="resultado_soma2"></span></h1><br/>
                             </div>
                             <br/>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
