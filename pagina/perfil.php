@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once('conexao/conexao.php');
+//alteração dos dados do usuário
 if (isset($_POST["alterar"])){
   //atualizar banco de dados
   if ($con=abreConexao()){
@@ -35,6 +36,7 @@ if (isset($_POST["alterar"])){
     $erro="Não foi possível estabelecer conexão com o banco de dados";
   }
 }
+//alteração de senha
 if (isset($_POST["subSenha"])){
   //verificar senha atual e atualizar a senha
   if ($con=abreConexao()){
@@ -70,6 +72,35 @@ if (isset($_POST["subSenha"])){
   else{
     $erro="Não foi possível estabelecer conexão com o banco de dados";
   }
+}
+
+//Aquisição de um novo contrato de serviços
+if (isset($_POST["novoContrato"])){
+//Inserir novo CONTRATO
+if ($con=abreConexao()){
+  $ps = mysqli_prepare(con, "INSERT INTO CONTRATO (CPF_TITULAR,DATA_CONTRATO,VALOR_CONTRATO) VALUES (?,?,?)");
+  mysqli_stmt_bind_param($ps, "ssd" $_SESSION["cpf"], date("Y-m-d"), doubleval($_POST["valor_total"]));
+  if (mysqli_stmt_execute($ps)){
+    $idContrato = mysql_insert_id();
+  }
+  else{
+    $erro = "Erro ao cadastrar novo contrato";
+  }
+}else {
+  $erro="Não foi possível estabelecer conexão com o banco de dados";
+}
+// Inserir ITEM_CONTRATO
+if (isset($idContrato)){
+  if ($con=abreConexao()){
+    //TODO Inserir um ítem pra cada tipo de serviço selecinado
+    $ps=mysqli_prepare($con, "INSERT INTO ITEM_CONTRATO (ID_CONTRATO, ID_SERVICO, VALOR_ITEM) VALUES (?,?,?)");
+    if (intval($_POST["customRadio"])>0){
+      //mysqli_stmt_bind_param($ps, "iid", $idContrato
+    }
+  }else {
+    $erro="Não foi possível estabelecer conexão com o banco de dados";
+  }
+}
 }
 ?>
 <!DOCTYPE html>

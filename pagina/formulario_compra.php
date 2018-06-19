@@ -21,31 +21,11 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-            <a class="navbar-brand" href="#">Top navbar</a>
-            <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <input clasís="form-control mr-sm-2" aria-label="Search" type="text" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-
-        <main class="container" role="main">
+    <?php include('estrutura/navbar.php')?>
+            <main class="container" role="main">
             <div class="jumbotron mx-auto text-center">
                 <h1 class="display-1">Contratar Planos</h1>
-                <form name="myForm">
+                <form name="myForm" method="post" action="perfil.php">
 
                     <h1 class="display-4" for="exampleSelect1">Telefone</h1>
                           <div class="custom-control custom-radio">
@@ -98,7 +78,7 @@
                           <div class="custom-control custom-radio">
                           <input type="radio" id="customRadio11" name="customRadio2" class="custom-control-input" checked>
                           <label class="custom-control-label text-primary" for="customRadio11">Nenhum</label>
-                        </div>                    
+                        </div>
                     <div class="card-deck">
                       <div class="card text-center">
                         <div class="card-body">
@@ -154,7 +134,7 @@
                         <div class="card-body">
                           <h1 class="card-title text-primary">P</h1>
                           <hr/>
-                          <p class="card-text">10Mb's</p>
+                          <p class="card-text">10Mbs</p>
                           <hr/>
                           <h5 class="text-success">R$: 18,00</h5>
                           <hr/>
@@ -168,7 +148,7 @@
                         <div class="card-body">
                           <h1 class="card-title text-primary">M</h1>
                           <hr/>
-                          <p class="card-text">50Mb's</p>
+                          <p class="card-text">50Mbs</p>
                           <hr/>
                           <h5 class="text-success">R$: 50,00</h5>
                           <hr/>
@@ -182,7 +162,7 @@
                         <div class="card-body">
                           <h1 class="card-title text-primary">G</h1>
                           <hr/>
-                          <p class="card-text">100Mb's</p>
+                          <p class="card-text">100Mbs</p>
                           <hr/>
                           <h5 class="text-success">R$: 100,00</h5>
                           <hr/>
@@ -234,17 +214,18 @@
                                     if ($("#customRadio1").prop("checked")) {
                                       var x = Number(document.getElementById("customRadio1").value);
                                       total = total + x;
-                                    }                                                                                                                                                                   document.getElementById("total").innerHTML = total;                                                
+                                    }
+                                    document.getElementById("valor_total").value=total;                                                                                                                                                                   document.getElementById("total").innerHTML = total;
                                     return false;
                                   })
                                 </script>
                                 <p class="text-primary">Plano Selecionado</p>
 
-
+                                <input type="hidden" id="valor_total" name="valor_total" />
                                 <h1 class="display-4 text-success" id="result">R$:<span id="total">0</span>,00<span id="resultado_soma2"></span></h1><br/>
                             </div>
                             <br/>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button name="novoContrato" type="submit" class="btn btn-primary">Confirmar</button>
                 </form>
             </div>
         </main>
