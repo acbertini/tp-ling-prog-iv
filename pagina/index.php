@@ -22,9 +22,10 @@
         <main class="container" role="main">
 
           <br/>
-            <div class="jumbotron bg-dark mx-auto text-center">
+            <div class="container mx-auto text-center">
+                <br/>
                 <div class="card-deck">
-                    <div class="card text-center">
+                    <div class="card text-center border-primary">
                         <img class="card-img-top" src="img/card-tv.png" alt="Televisão a Cabo">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Televisão A Cabo</h5>
@@ -32,7 +33,7 @@
                             <a href="plano_televisao.php" class="btn btn-outline-primary">Saiba Mais</a>
                         </div>
                     </div>
-                    <div class="card text-center">
+                    <div class="card text-center border-primary">
                         <img class="card-img-top" src="img/card-cel.png" alt="Rede Móvel">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Telefone Fixo</h5>
@@ -40,7 +41,7 @@
                             <a href="plano_movel.php" class="btn btn-outline-primary">Saiba Mais</a>
                         </div>
                     </div>
-                    <div class="card text-center">
+                    <div class="card text-center border-primary">
                         <img class="card-img-top" src="img/card-net.png" alt="Internet Fixa">
                         <div class="card-body">
                             <h5 class="card-title text-primary">Internet Fixa</h5>
@@ -61,6 +62,7 @@
                     }  ?>
                 </div>
             </div>
+            <br/>
         </main>
         <?php include('estrutura/footer.php')?>
     </body>

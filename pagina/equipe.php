@@ -22,7 +22,7 @@
         <main class="container" role="main">
 
           <br/>
-            <div class="container bg-dark mx-auto text-center">
+            <div class="container mx-auto text-center">
                 <br/><h1 class='text-primary'>Equipe</h1><br/>
                 <div class="card-deck">
                     <div class="card text-center border-primary">
