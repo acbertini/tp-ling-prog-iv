@@ -8,9 +8,10 @@
 <!-- Boostrap JS Library -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <div class="container-fluid bg-dark mx-auto text-center">
-<p>Feito com amor em Belo Horizonte
-© 2003 - 2018, 2.5 milhões de músicas, 99.5 milhões de visitas em Maio 
-Muito mais que letras de músicas</p>
+<a href="index.php">Home</a> <span class='text-primary'>|</span> <a href='sobre.php'>Sobre</a>
+	<br/>
+<p class='text-white'>Feito com amor em Praia Grande
+© ADS 4º Ciclo Noturno 2018, 2.5 mil linhas, 99.5 mil horas gastas em Maio, Junho e Resto do ano</p>
 </div>
 <!--
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -26,21 +26,13 @@
         <?php include('estrutura/navbar.php')?>
 
         <main class="container" role="main">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 jumbotron">
-                      <h3>Preencha os campos</h3>
+
+                    <div class="container">
+                        <br/>
+                      <h3 class='text-center'>Preencha os campos</h3>
                       <?php include('formCadastro.php') ?>
                     </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <br/>
         </main>
 
         <?php include('estrutura/footer.php')?>
