@@ -29,7 +29,7 @@
 
                     <h1 class="display-4" for="exampleSelect1">Telefone</h1>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input" checked>
+                          <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input" value="0" checked>
                           <label class="custom-control-label text-primary" for="customRadio10">Nenhum</label>
                         </div>
                     <div class="card-deck">
@@ -76,7 +76,7 @@
 
                     <h1 class="display-4">Televisão</h1>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio11" name="customRadio2" class="custom-control-input" checked>
+                          <input type="radio" id="customRadio11" name="customRadio2" class="custom-control-input" value="0" checked>
                           <label class="custom-control-label text-primary" for="customRadio11">Nenhum</label>
                         </div>
                     <div class="card-deck">
@@ -126,7 +126,7 @@
 
                     <h1 class="display-4">Internet</h1>
                           <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio12" name="customRadio3" class="custom-control-input" checked>
+                          <input type="radio" id="customRadio12" name="customRadio3" class="custom-control-input" value="0" checked>
                           <label class="custom-control-label text-primary" for="customRadio12">Nenhum</label>
                         </div>
                     <div class="card-deck">

@@ -78,10 +78,12 @@ if (isset($_POST["subSenha"])){
 if (isset($_POST["novoContrato"])){
 //Inserir novo CONTRATO
 if ($con=abreConexao()){
-  $ps = mysqli_prepare(con, "INSERT INTO CONTRATO (CPF_TITULAR,DATA_CONTRATO,VALOR_CONTRATO) VALUES (?,?,?)");
-  mysqli_stmt_bind_param($ps, "ssd" $_SESSION["cpf"], date("Y-m-d"), doubleval($_POST["valor_total"]));
+  $ps = mysqli_prepare($con, "INSERT INTO CONTRATO (CPF_TITULAR,DATA_CONTRATO,VALOR_CONTRATO) VALUES (?,?,?)");
+  $hoje=date("Y-m-d");
+  $total = doubleval($_POST["valor_total"]);
+  mysqli_stmt_bind_param($ps, "ssd", $_SESSION["usuario"]["cpf"], $hoje, $total);
   if (mysqli_stmt_execute($ps)){
-    $idContrato = mysql_insert_id();
+    $idContrato = mysqli_insert_id($con);
   }
   else{
     $erro = "Erro ao cadastrar novo contrato";
@@ -92,11 +94,29 @@ if ($con=abreConexao()){
 // Inserir ITEM_CONTRATO
 if (isset($idContrato)){
   if ($con=abreConexao()){
-    //TODO Inserir um ítem pra cada tipo de serviço selecinado
-    $ps=mysqli_prepare($con, "INSERT INTO ITEM_CONTRATO (ID_CONTRATO, ID_SERVICO, VALOR_ITEM) VALUES (?,?,?)");
-    if (intval($_POST["customRadio"])>0){
-      //mysqli_stmt_bind_param($ps, "iid", $idContrato
+    //Usei um select dentro do insert para descobrir o id do servico a partir de seu valor e seu tipo. Funciona porque não há mais de um serviço do mesmo tipo com o mesmo valor.
+    //Um jeito melhor seria atribuir aos radios da página formulario_compra os ids dos serviços, mas estragaria a função que o Fábio fez para calcular o total.
+    $ps=mysqli_prepare($con, "INSERT INTO ITEM_CONTRATO VALUES (DEFAULT,?,?,(SELECT ID_SERVICO FROM servico WHERE VALOR_SERVICO=? AND ID_TIPO_SERVICO=?))");
+    //o customRadio equivale aos serviços de id_tipo_servico=1
+    $v = doubleval($_POST["customRadio"]);
+    if ($v>0){
+        $idTipo=1;
+        mysqli_stmt_bind_param($ps, "didi", $v, $idContrato, $v, $idTipo);
+        mysqli_stmt_execute($ps);
     }
+    //customRadio2 -->id_tipo_servico=2
+    $v = doubleval($_POST["customRadio2"]);
+    if ($v>0){
+        mysqli_stmt_bind_param($ps, "didi", $v, $idContrato, $v, $idTipo);
+        mysqli_stmt_execute($ps);
+    }
+    //customRadio3 -->id_tipo_servico=3
+    $v = doubleval($_POST["customRadio3"]);
+    if ($v>0){
+        mysqli_stmt_bind_param($ps, "didi", $v, $idContrato, $v, $idTipo);
+        mysqli_stmt_execute($ps);
+    }
+    $mensagem="Parabéns! Você adquiriu um contrato de serviços i9!<br/>Aguarde o contato de nossos consultores para maiores detalhes.";
   }else {
     $erro="Não foi possível estabelecer conexão com o banco de dados";
   }
