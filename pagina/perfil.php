@@ -2,28 +2,6 @@
 //session_start();
 include_once('conexao/conexao.php');
 include_once('estrutura/logica-login.php');
-//Carregar lista de contratos do usuário logado
-$contratos=array();
-if ($con=abreConexao()){
-    $res=mysqli_query($con, "SELECT * FROM contrato WHERE CPF_TITULAR='".$_SESSION["usuario"]["cpf"]."'");
-    while($linha=mysqli_fetch_assoc($res)){
-      array_push($contratos, $linha);
-    }
-    $ps=mysqli_prepare($con, "SELECT DESCRICAO_TIPO, DESCRICAO_SERVICO, VALOR_ITEM FROM ITEM_CONTRATO INNER JOIN CONTRATO ON CONTRATO.ID_CONTRATO=ITEM_CONTRATO.ID_CONTRATO INNER JOIN SERVICO ON ITEM_CONTRATO.ID_SERVICO=SERVICO.ID_SERVICO INNER JOIN TIPO_SERVICO ON SERVICO.ID_TIPO_SERVICO=TIPO_SERVICO.ID_TIPO_SERVICO WHERE ITEM_CONTRATO.ID_CONTRATO=?");
-    //foreach ($contratos as $key => $value) {
-    for($i=0;$i<sizeof($contratos);$i++){
-      $id=$contratos[$i]["ID_CONTRATO"];
-      mysqli_stmt_bind_param($ps, "i", $id);
-      mysqli_stmt_execute($ps);
-      mysqli_stmt_bind_result($ps, $tipo, $serv, $valor);
-      $itensContrato = array();
-      while (mysqli_stmt_fetch($ps)){
-        array_push($itensContrato, array($tipo, $serv, $valor));
-      }
-      $contratos[$i]["itens"]=$itensContrato;
-    }
-    mysqli_close($con);
-}
 
 //alteração dos dados do usuário
 if (isset($_POST["alterar"])){
@@ -151,6 +129,30 @@ if (isset($idContrato)){
   }
 }
 }
+
+//Carregar lista de contratos do usuário logado
+$contratos=array();
+if ($con=abreConexao()){
+    $res=mysqli_query($con, "SELECT * FROM contrato WHERE CPF_TITULAR='".$_SESSION["usuario"]["cpf"]."'");
+    while($linha=mysqli_fetch_assoc($res)){
+      array_push($contratos, $linha);
+    }
+    $ps=mysqli_prepare($con, "SELECT DESCRICAO_TIPO, DESCRICAO_SERVICO, VALOR_ITEM FROM ITEM_CONTRATO INNER JOIN CONTRATO ON CONTRATO.ID_CONTRATO=ITEM_CONTRATO.ID_CONTRATO INNER JOIN SERVICO ON ITEM_CONTRATO.ID_SERVICO=SERVICO.ID_SERVICO INNER JOIN TIPO_SERVICO ON SERVICO.ID_TIPO_SERVICO=TIPO_SERVICO.ID_TIPO_SERVICO WHERE ITEM_CONTRATO.ID_CONTRATO=?");
+    //foreach ($contratos as $key => $value) {
+    for($i=0;$i<sizeof($contratos);$i++){
+      $id=$contratos[$i]["ID_CONTRATO"];
+      mysqli_stmt_bind_param($ps, "i", $id);
+      mysqli_stmt_execute($ps);
+      mysqli_stmt_bind_result($ps, $tipo, $serv, $valor);
+      $itensContrato = array();
+      while (mysqli_stmt_fetch($ps)){
+        array_push($itensContrato, array($tipo, $serv, $valor));
+      }
+      $contratos[$i]["itens"]=$itensContrato;
+    }
+    mysqli_close($con);
+}
+
 ?>
 <!DOCTYPE html>
 <html>

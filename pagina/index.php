@@ -53,9 +53,10 @@
                 <br/>
                 <div>
 
-                    <?php 
+                    <?php
                     if(isset($_SESSION["usuario"])){
-                        echo "<button class='btn btn-primary mx-auto text-center btn-block btn-lg'>Contrate Aqui</button>";
+                        //echo "<button class='btn btn-primary mx-auto text-center btn-block btn-lg'>Contrate Aqui</button>";
+                        echo "<a class='btn btn-primary mx-auto text-center btn-block btn-lg' href='formulario_compra.php'>Contrate aqui</a>";
                     }
                     else{
                         echo "<h3 class='text-primary'>Logue-se para contratar</h3>";
