@@ -14,6 +14,16 @@
                     });
                 });
             </script>
+            <script>
+            function onSub(){
+              if (document.getElementById("customRadio10").checked && document.getElementById("customRadio11").checked && document.getElementById("customRadio12").checked){
+                alert("Nenhum plano selecionado!");
+                return false;
+              }
+              calcularTotal();
+              return true;
+            }
+            </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -25,7 +35,7 @@
             <main class="container" role="main">
             <div class="jumbotron mx-auto text-center">
                 <h1 class="display-1">Contratar Planos</h1>
-                <form name="myForm" method="post" action="perfil.php">
+                <form name="myForm" onsubmit="return onSub();" method="post" action="perfil.php">
 
                     <h1 class="display-4" for="exampleSelect1">Telefone</h1>
                           <div class="custom-control custom-radio">
@@ -177,7 +187,7 @@
                              <div class="card border border-primary">
                                 <button class="btn btn-primary" name="btn1" for="" id="btn1">Simular</button>
                                 <script type="text/javascript">
-                                  $("#btn1").click(function() {
+                                  function calcularTotal(){
                                     var total = 0;
                                     if ($("#customRadio9").prop("checked")) {
                                       var x = Number(document.getElementById("customRadio9").value);
@@ -215,9 +225,11 @@
                                       var x = Number(document.getElementById("customRadio1").value);
                                       total = total + x;
                                     }
-                                    document.getElementById("valor_total").value=total;                                                                                                                                                                   document.getElementById("total").innerHTML = total;
+                                    document.getElementById("valor_total").value=total;
+                                                                                                                                                                                                       document.getElementById("total").innerHTML = total;
                                     return false;
-                                  })
+                                  }
+                                  $("#btn1").click(calcularTotal());
                                 </script>
                                 <p class="text-primary">Plano Selecionado</p>
 
