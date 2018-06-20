@@ -22,6 +22,7 @@ if (isset($_POST["login"])){
                     //"senha" => $senha
                 ];
                 $_SESSION["usuario"]=$usuario;
+                setcookie("lastUser", $usuario["cpf"], time()+60*60*24*7); //7 dias
             }
             else {
                 $erro = "Senha incorreta!";
