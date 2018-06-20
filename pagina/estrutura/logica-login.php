@@ -37,6 +37,7 @@ if (isset($_POST["login"])){
 }
 if (isset($_POST["logout"])){
     session_unset();
+    header('Location: index.php');
     //session_destroy();
 }
 if (isset($_POST["subCadastrar"])){

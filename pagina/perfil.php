@@ -1,6 +1,30 @@
 <?php
-session_start();
+//session_start();
 include_once('conexao/conexao.php');
+include_once('estrutura/logica-login.php');
+//Carregar lista de contratos do usuário logado
+$contratos=array();
+if ($con=abreConexao()){
+    $res=mysqli_query($con, "SELECT * FROM contrato WHERE CPF_TITULAR='".$_SESSION["usuario"]["cpf"]."'");
+    while($linha=mysqli_fetch_assoc($res)){
+      array_push($contratos, $linha);
+    }
+    $ps=mysqli_prepare($con, "SELECT DESCRICAO_TIPO, DESCRICAO_SERVICO, VALOR_ITEM FROM ITEM_CONTRATO INNER JOIN CONTRATO ON CONTRATO.ID_CONTRATO=ITEM_CONTRATO.ID_CONTRATO INNER JOIN SERVICO ON ITEM_CONTRATO.ID_SERVICO=SERVICO.ID_SERVICO INNER JOIN TIPO_SERVICO ON SERVICO.ID_TIPO_SERVICO=TIPO_SERVICO.ID_TIPO_SERVICO WHERE ITEM_CONTRATO.ID_CONTRATO=?");
+    //foreach ($contratos as $key => $value) {
+    for($i=0;$i<sizeof($contratos);$i++){
+      $id=$contratos[$i]["ID_CONTRATO"];
+      mysqli_stmt_bind_param($ps, "i", $id);
+      mysqli_stmt_execute($ps);
+      mysqli_stmt_bind_result($ps, $tipo, $serv, $valor);
+      $itensContrato = array();
+      while (mysqli_stmt_fetch($ps)){
+        array_push($itensContrato, array($tipo, $serv, $valor));
+      }
+      $contratos[$i]["itens"]=$itensContrato;
+    }
+    mysqli_close($con);
+}
+
 //alteração dos dados do usuário
 if (isset($_POST["alterar"])){
   //atualizar banco de dados
@@ -56,7 +80,7 @@ if (isset($_POST["subSenha"])){
           $senhaCript= md5($_POST["senha"]);
           mysqli_stmt_bind_param($ps2, "ss", $senhaCript, $_SESSION["usuario"]["cpf"]);
           mysqli_stmt_execute($ps2);
-
+          mysqli_close($con);
           $mensagem="Senha atualizada com sucesso!";
         }
         else{
@@ -88,9 +112,11 @@ if ($con=abreConexao()){
   else{
     $erro = "Erro ao cadastrar novo contrato";
   }
+  mysqli_close($con);
 }else {
   $erro="Não foi possível estabelecer conexão com o banco de dados";
 }
+
 // Inserir ITEM_CONTRATO
 if (isset($idContrato)){
   if ($con=abreConexao()){
@@ -107,15 +133,18 @@ if (isset($idContrato)){
     //customRadio2 -->id_tipo_servico=2
     $v = doubleval($_POST["customRadio2"]);
     if ($v>0){
+        $idTipo=2;
         mysqli_stmt_bind_param($ps, "didi", $v, $idContrato, $v, $idTipo);
         mysqli_stmt_execute($ps);
     }
     //customRadio3 -->id_tipo_servico=3
     $v = doubleval($_POST["customRadio3"]);
     if ($v>0){
+        $idTipo=3;
         mysqli_stmt_bind_param($ps, "didi", $v, $idContrato, $v, $idTipo);
         mysqli_stmt_execute($ps);
     }
+    mysqli_close($con);
     $mensagem="Parabéns! Você adquiriu um contrato de serviços i9!<br/>Aguarde o contato de nossos consultores para maiores detalhes.";
   }else {
     $erro="Não foi possível estabelecer conexão com o banco de dados";
@@ -159,6 +188,26 @@ if (isset($idContrato)){
     echo (isset($erro)?"<div class='jumbotron'><h4 class='text-danger'>$erro</h4></div>":"");
     echo (isset($mensagem)?"<div class='jumbotron'><h4 class='text-success'>$mensagem</h4></div>":"");
    ?>
+   <div class="jumbotron" name="listaContratos">
+     <h3>Meus contratos</h3>
+     <?php
+        if (sizeof($contratos)>0){
+          for ($i=0;$i<sizeof($contratos); $i++){
+            echo "<h5>Contrato número ".$contratos[$i]["ID_CONTRATO"]."</h5><p>Data do contrato: ".$contratos[$i]["DATA_CONTRATO"]."</p>";
+            echo "<ul>";
+            $it=$contratos[$i]["itens"];
+              for($j=0;$j<sizeof($it); $j++){
+                echo "<li>".$it[$j][0]." Plano: ".$it[$j][1]." Valor: R$ ".$it[$j][2]."</li>";
+              }
+            echo "</ul>";
+            echo "Valor total do contrato: R$ ".$contratos[$i]["VALOR_CONTRATO"];
+            echo "<hr/>";
+          }
+        }else {
+          echo "<h4 class='text-danger'>Você não possui nenhum contrato cadastrado!</h4>";
+        }
+     ?>
+   </div>
   <div class="jumbotron">
     <h3>Meus dados</h3>
     <form class="form-control" id="formAlterar" action='perfil.php' method="post">
