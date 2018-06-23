@@ -183,9 +183,13 @@
                         </div>
                       </div>
                     </div>
+                                        <br/>
+                                         <input type="hidden" id="valor_total" name="valor_total" />
+                                        <button name="novoContrato" type="submit" class="btn btn-primary">Confirmar</button>
+                </form>
                              <br/>
                              <div class="card border border-primary">
-                                <button class="btn btn-primary" name="btn1" for="" id="btn1">Simular</button>
+                                <button class="btn btn-primary" name="btn1" id="btn1" onclick='calcularTotal()'>Simular</button>
                                 <script type="text/javascript">
                                   function calcularTotal(){
                                     var total = 0;
@@ -226,19 +230,15 @@
                                       total = total + x;
                                     }
                                     document.getElementById("valor_total").value=total;
-                                                                                                                                                                                                       document.getElementById("total").innerHTML = total;
+                                    document.getElementById("total").innerHTML = total;
                                     return false;
                                   }
-                                  $("#btn1").click(calcularTotal());
+                                  $("#btn1").onclick(calcularTotal());
                                 </script>
                                 <p class="text-primary">Plano Selecionado</p>
-
-                                <input type="hidden" id="valor_total" name="valor_total" />
                                 <h1 class="display-4 text-success" id="result">R$:<span id="total">0</span>,00<span id="resultado_soma2"></span></h1><br/>
                             </div>
                             <br/>
-                    <button name="novoContrato" type="submit" class="btn btn-primary">Confirmar</button>
-                </form>
             </div>
         </main>
 
